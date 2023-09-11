@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  backend:
+    build: ./django-moni/
+    environment:
+     - APIKEY_MONI=ZGpzOTAzaWZuc2Zpb25kZnNubm5u
+     - URL_MONI=https://api.moni.com.ar/api/v4/scoring/pre-score/
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    build: ./frontend/
+    restart: always
+    ports:
+      - "5173:5173"
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: moni

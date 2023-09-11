@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  backend:
+    volumes:
+      - ./django-moni/monidjango:/opt/app/monidjango
+
+  frontend:
+    volumes:
+      - ./frontend:/opt/app/frontend
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 5050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+volumes:
+    backend:
+      external: true
+    frontend:
+      external: true
