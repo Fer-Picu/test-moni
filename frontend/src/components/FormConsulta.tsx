@@ -61,103 +61,36 @@ export function FormConsulta ({ id='', formData = {sexo: "Hombre"} }) {
         <>
             <h2 className="text-base leading-7 text-gray-900">Ingresa los datos!</h2>
             <form onSubmit={handleSubmit}>
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-8">
-                <div className="sm:col-span-4">
-                  <label htmlFor="nombre" className="block text-sm font-medium leading-6 text-gray-900">
-                    Nombre
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      name="nombre"
-                      placeholder="Nombre"
-                      onChange={handleChange}
-                      value={payload.nombre}
-                      disabled={status === 'submitting'}
-                      autoComplete="family-name"
-                      id="nombre"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                    {error.nombre && <span>{error.nombre}</span>}
-                  </div>
-                </div>
-                <div className="sm:col-span-4">
-                  <label htmlFor="apellido" className="block text-sm font-medium leading-6 text-gray-900">
-                    Apellido
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      name="apellido"
-                      placeholder="Apellido"
-                      onChange={handleChange}
-                      value={payload.apellido}
-                      disabled={status === 'submitting'}
-                      id="apellido"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                    {error.apellido && <span>{error.apellido}</span>}
-                  </div>
-                </div>
-                <div className="sm:col-span-4">
-                  <label htmlFor="dni" className="block text-sm font-medium leading-6 text-gray-900">
-                    DNI
-                  </label>
-                  <div className="mt-2">               
-                    <input
-                      name="dni"
-                      placeholder="DNI"
-                      onChange={handleChange}
-                      value={payload.dni}
-                      disabled={status === 'submitting'}
-                      id="dni"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                    {error.dni && <span>{error.dni}</span>}
+                <div className="grid md:grid-cols-4 md:gap-6">
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input onChange={handleChange} value={payload.nombre} disabled={status === 'submitting'} type="text" name="nombre" id="nombre" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label htmlFor="apellido" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input onChange={handleChange} type="text" name="apellido" id="apellido" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label htmlFor="apellido" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellido</label>
                     </div>
                 </div>
-                <div className="sm:col-span-4">
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                    Email
-                  </label>
-                  <div className="mt-2">        
-                    <input
-                      name="email"
-                      placeholder="Email"
-                      onChange={handleChange}
-                      value={payload.email}
-                      disabled={status === 'submitting'}
-                      id="email"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                    {error.email && <span>{error.email}</span>}
+                <div className="grid md:grid-cols-4 md:gap-6">
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input onChange={handleChange} value={payload.dni} disabled={status === 'submitting'} type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="dni" id="dni" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label htmlFor="dni" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">DNI</label>
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input onChange={handleChange} value={payload.email} disabled={status === 'submitting'} type="" type="email" name="email" id="email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                       <label htmlFor="email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
                     </div>
                 </div>
-                <div className="sm:col-span-3">
-                  <label htmlFor="sexo" className="block text-sm font-medium leading-6 text-gray-900">
-                    Sexo
-                  </label>
-                  <div className="mt-2">
-                    <select name="sexo"
-                        id="sexo"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                        onChange={handleChange}
-                        value={payload.sexo || "Hombre"}
-                        disabled={status === 'submitting'}
-                      >
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer">Mujer</option>
-                    </select>
-                    {error.form && <span>{error.form}</span>}
-                  </div>
+                <div className="grid md:grid-cols-4 md:gap-6">
+                    <div className="relative z-0 w-full mb-6 group">
+                        <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sexo</label>
+                            <select onChange={handleChange} value={payload.sexo || "Hombre"} disabled={status === 'submitting'} id="sexo" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>Mujer</option>
+                            <option>Hombre</option>
+                        </select>
+                    </div>
                 </div>
-                <div className="mt-6 flex items-center justify-end gap-x-6">
-                  <button
-                    type="submit" disabled={status === 'submitting'}
-                    className="rounded-md bg-sky-500/100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500/100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-sky-500/100"
-                  >
-                    Enviar
-                  </button>
-                </div>
-              </div>
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
             </form>
         </>
     );
