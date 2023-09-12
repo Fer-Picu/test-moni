@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Client } from "./pages/Client";
 import { Login } from "./pages/Login";
-import { Test } from "./pages/test-lok";
+
 import { Update } from "./pages/Update";
 import { Toaster } from 'react-hot-toast';
 
@@ -18,7 +18,7 @@ function App() {
           <Route path="/Login" element= {<Login/>}/>
           <Route path="/Client" element= {<Client/>}/>
           <Route path="/Update/:id" element={<Update/>}/>
-          <Route path="/Test" element={<Test/>}/>
+          
         </Routes>
         <Toaster/>
       </div>

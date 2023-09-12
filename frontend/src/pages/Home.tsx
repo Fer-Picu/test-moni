@@ -50,41 +50,45 @@ export function Home() {
   return (
     <div >
       <h1 className="text-3xl font-bold underline">Home</h1>
-      <table className="businessTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-            <th>Email</th>
-            <th>Sexo</th>
-            <th>Aprobado</th>
-            <th>Descripción</th>
-            <th>Fecha de Creación</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.nombre}</td>
-              <td>{item.apellido}</td>
-              <td>{item.dni}</td>
-              <td>{item.email}</td>
-              <td>{item.sexo}</td>
-              <td>{item.aproved ? "Sí" : "No"}</td>
-              <td>{item.description}</td>
-              <td>{new Date(item.created).toLocaleString()}</td>
-              <td>
-                <button className="btn"  onClick={() => handleUpdate(item.id)} ><FontAwesomeIcon icon={faEdit} /> Edit</button>
-                <button className="btn"  onClick={() => handleDelete(item.id)} ><FontAwesomeIcon icon={faTrash} /> Delete</button>
-              </td>
+      <br/>
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+           <thead className="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>DNI</th>
+              <th>Email</th>
+              <th>Sexo</th>
+              <th>Aprobado</th>
+              <th>Descripción</th>
+              <th>Fecha de Creación</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+    
+            {data.map((item) => (
+              <tr key={item.id} className="bg-gray-600 border-b border-gray-400 hover:bg-gray-500">
+                <td>{item.id}</td>
+                <td>{item.nombre}</td>
+                <td>{item.apellido}</td>
+                <td>{item.dni}</td>
+                <td>{item.email}</td>
+                <td>{item.sexo}</td>
+                <td>{item.aproved ? "Sí" : "No"}</td>
+                <td>{item.description}</td>
+                <td>{new Date(item.created).toLocaleString()}</td>
+                <td>
+                  <button className="btn"  onClick={() => handleUpdate(item.id)} ><FontAwesomeIcon icon={faEdit} /> Edit</button>
+                  <button className="btn"  onClick={() => handleDelete(item.id)} ><FontAwesomeIcon icon={faTrash} /> Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
